@@ -60,7 +60,8 @@ section {
     background-color: rgb(217,239,255);
 }
 
-section h1 {
+section h3 {
+
 }
 
 div.topic {
@@ -72,8 +73,10 @@ div.topic {
 div.abstract {
 }
 
-div.example {
+div.example h3 {
   font-family: "Liberation Sans Narrow", "Arial Narrow", Arial, sans-serif;
+  font-size: 0.75em;
+  line-height: 1.333em;
 }
 
 div.take-away {
@@ -108,23 +111,6 @@ footer ul.validators {
 footer ul.validators li {
 }
 
-/*Navigation*/
-nav {
-}
-
-nav li {
-}
-
-nav li a {
-}
-
-nav li a:visited {
-}
-
-nav li a:hover,
-nav li a:focus {
-}
-
 
 /*article Typography: Headings*/
 article h2 {
@@ -137,17 +123,6 @@ article h2 {
 
 /*article Typography: Paragraphs*/
 article p {
-}
-
-/*article Typography: Unordered Lists*/
-article ul {
-}
-article ul li {
-}
-/*Nested*/
-article * li ul {
-}
-article * li ul li {
 }
 
 /*main Typography: Links*/
@@ -174,19 +149,53 @@ main a:focus {
 }
 */
 
-@media all and ( min-width: 400px ) {
+@media all and ( min-width: 600px ) {
 
-  .col-1 {
-    float: left;
-    width: 33%;
-    padding-left: 3%;
-    padding-right: 1.5%;
-  }
-  .col-2 {
-    float: left;
-    width: 51%;
-    padding-left: 1.5%;
-    padding-right: 3%;
-  }
+    .col-1 {
+      float: left;
+      width: 33%;
+      padding-left: 3%;
+      padding-right: 1.5%;
+      border: 1px solid black;
+    }
+    .col-2 {
+      float: left;
+      width: 51%;
+      padding-left: 1.5%;
+      padding-right: 3%;
+    }
+
+    /* CSS image replacement */
+
+    #exrsa {
+      width:  200px;
+	    height: 180px;
+	    background-image: url("gfx/PSED/rsa-200.png");
+    	background-repeat: no-repeat;
+    }
+
+    #exrsa span {
+    	display: none;
+	  }
 }
+
+
+@media all and ( max-width: 599px ) {
+
+/* Fall-back image replacement */
+
+    #exrsa {
+      width: 100px;
+	    height: 90px;
+	    background-image: url("gfx/PSED/rsa-100.png");
+    	background-repeat: no-repeat;
+    }
+
+    #exrsa span {
+    	display: none;
+	  }
+
+}
+
+
 
