@@ -171,6 +171,18 @@ main a:focus {
     #exrsa span {
     	display: none;
 	  }
+
+    #exsp {
+      width:  200px;
+	    height: 200px;
+	    background-image: url("gfx/P380/scatterplot-200.png");
+    	background-repeat: no-repeat;
+    }
+
+    #exsp span {
+    	display: none;
+	  }
+
 }
 
 @media all and ( max-width: 599px ) {
@@ -188,5 +200,18 @@ main a:focus {
     	display: none;
 	  }
 
+    #exsp {
+      width:  100px;
+	    height: 100px;
+	    background-image: url("gfx/P380/scatterplot-100.png");
+    	background-repeat: no-repeat;
+    }
+
+    #exsp span {
+    	display: none;
+	  }
+
 }
+
+
 
