@@ -28,7 +28,6 @@ abbr,acronym { border-bottom: 1px dotted; cursor: help; }
 
 body {
   font-family:  Helvetica, "Liberation Sans Narrow", Arial, sans-serif;
-  /* font-family: "Arial Narrow", Arial, sans-serif; */
   font-size: 0.75em;
   line-height: 1.333em;
 }
@@ -121,10 +120,6 @@ article h2 {
   margin-left: 1.5%;
 }
 
-/*article Typography: Paragraphs*/
-article p {
-}
-
 /*main Typography: Links*/
 main a {
 }
@@ -156,7 +151,6 @@ main a:focus {
       width: 33%;
       padding-left: 3%;
       padding-right: 1.5%;
-      border: 1px solid black;
     }
     .col-2 {
       float: left;
@@ -179,7 +173,6 @@ main a:focus {
 	  }
 }
 
-
 @media all and ( max-width: 599px ) {
 
 /* Fall-back image replacement */
@@ -196,6 +189,4 @@ main a:focus {
 	  }
 
 }
-
-
 
