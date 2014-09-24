@@ -1,0 +1,195 @@
+/* screen.css: Screen Styles */
+/* Significant changes from rpk by MJF */
+
+/* Base Styles */
+
+/* Bold on headings, b, and strong */
+h1,h2,h3,h4,h5,h6,b,strong { font-weight: bold; }
+
+/* Italic on i, em, and cite: */
+i,em,cite { font-style: italic; }
+
+/* Dotted border and help cursor to abbr and acronym: */
+abbr,acronym { border-bottom: 1px dotted; cursor: help; }
+
+/* resets */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Body */
+
+body {
+  font-family:  Helvetica, "Liberation Sans Narrow", Arial, sans-serif;
+  /* font-family: "Arial Narrow", Arial, sans-serif; */
+  font-size: 0.75em;
+  line-height: 1.333em;
+}
+
+/* Element hierarchy:
+    <main>
+      <article id="[area]">
+        <section class="topic">
+          <div class="abstract">
+          <div class="example">
+          <div class="take-away">
+*/
+
+
+/* Main */
+
+main {
+}
+
+/* Article ("Area") - contains elements "section" */
+
+article {
+    background-color: rgb(242,250,255);
+}
+
+/* Section - contains div.topic, div.abstract, div.example, div.take-away */
+
+section {
+    background-color: rgb(217,239,255);
+}
+
+section h1 {
+}
+
+div.topic {
+  font-family: Verdana, "Liberation Sans", Geneva, sans-serif;
+  font-size: 1.125em;
+  line-height: 1.333em;
+}
+
+div.abstract {
+}
+
+div.example {
+  font-family: "Liberation Sans Narrow", "Arial Narrow", Arial, sans-serif;
+}
+
+div.take-away {
+  font-size: 1.125em;
+  line-height: 1.333em;
+}
+
+
+/* Header */
+header {
+}
+header h1 {
+  font-family: Verdana, "DejaVu Sans", Geneva, sans-serif;
+  font-size: 1.875em;
+  line-height: 1.333em;
+}
+header h1 a {
+}
+header p.tagline {
+}
+header ul.accessibility {
+}
+
+/* Footer */
+footer {
+}
+footer p.credits {
+}
+footer ul.validators {
+}
+footer ul.validators li {
+}
+
+/*Navigation*/
+nav {
+}
+
+nav li {
+}
+
+nav li a {
+}
+
+nav li a:visited {
+}
+
+nav li a:hover,
+nav li a:focus {
+}
+
+
+/*article Typography: Headings*/
+article h2 {
+  position: left;
+  font-size: 1.5em;
+  line-height: 1.333em;
+  padding: 1.5%;
+  margin-left: 1.5%;
+  border: 1px solid black
+}
+
+/*article Typography: Paragraphs*/
+article p {
+}
+
+/*article Typography: Unordered Lists*/
+article ul {
+}
+article ul li {
+}
+/*Nested*/
+article * li ul {
+}
+article * li ul li {
+}
+
+/*main Typography: Links*/
+main a {
+}
+main a:visited {
+}
+main a:hover,
+main a:focus {
+}
+
+/* Responsive grid layout, using `box‐sizing:border‐box` */
+
+.row {
+  margin: 0 3%;        /* Two-value syntax {margin: vertical horizontal} */
+  margin-bottom: 0px;
+}
+.row:last-child {
+  margin-bottom: 3%;
+}
+/*
+[class*="col-"] {
+  padding: 40px;
+}
+*/
+
+@media all and ( min-width: 600px ) {
+
+  .col-1 {
+    float: left;
+    width: 33%;
+    padding-left: 3%;
+    padding-right: 1.5%;
+    border: 1px solid black
+  }
+  .col-2 {
+    float: left;
+    width: 51%;
+    padding-left: 1.5%;
+    padding-right: 3%;
+    border: 1px solid black
+
+  }
+}
+
