@@ -1,5 +1,5 @@
 /* screen.css: Screen Styles */
-/* Significant changes from rpk by MJF */
+
 
 /* Base Styles */
 
@@ -24,64 +24,14 @@ abbr,acronym { border-bottom: 1px dotted; cursor: help; }
   clear: both;
 }
 
+
+
 /* Body */
 
 body {
   font-family:  Helvetica, "Liberation Sans Narrow", Arial, sans-serif;
   font-size: 0.75em;
   line-height: 1.333em;
-}
-
-/* Element hierarchy:
-    <main>
-      <article id="[area]">
-        <section class="topic">
-          <div class="abstract">
-          <div class="example">
-          <div class="take-away">
-*/
-
-
-/* Main */
-
-main {
-}
-
-/* Article ("Area") - contains elements "section" */
-
-article {
-    background-color: rgb(242,250,255);
-}
-
-/* Section - contains div.topic, div.abstract, div.example, div.take-away */
-
-section {
-    background-color: rgb(217,239,255);
-}
-
-section h3 {
-
-}
-
-div.topic {
-  font-family: Verdana, "Liberation Sans", Geneva, sans-serif;
-  font-size: 1.125em;
-  line-height: 1.333em;
-}
-
-div.abstract {
-}
-
-div.example h3 {
-  font-family: "Liberation Sans Narrow", "Arial Narrow", Arial, sans-serif;
-  font-size: 0.75em;
-  line-height: 1.333em;
-}
-
-div.take-away {
-  font-size: 1.125em;
-  line-height: 1.333em;
-  text-align: right;
 }
 
 
@@ -100,63 +50,108 @@ header p.tagline {
 header ul.accessibility {
 }
 
-/* Footer */
-footer {
-}
-footer p.credits {
-}
-footer ul.validators {
-}
-footer ul.validators li {
-}
+
+/* Element hierarchy:
+    <main>
+      <article id="[area]">
+        <section id="[focus]">
+          <div class="topic">
+          <div class="abstract">
+          <div class="example">
+          <div class="take-away">
+*/
 
 
-/*article Typography: Headings*/
+/* Main */
+
+main {
+}
+
+/* Article ("Area") - contains element "section" */
+
+article {
+    background-color: rgb(242,250,255);    /* hsv(205,005,100) */
+    padding: 3.0%;
+}
+
 article h2 {
-  position: left;
   font-size: 1.5em;
   line-height: 1.333em;
-  padding: 1.5%;
-  margin-left: 1.5%;
 }
 
-/*main Typography: Links*/
-main a {
-}
-main a:visited {
-}
-main a:hover,
-main a:focus {
+/* Section ("focus") - contains div.topic, div.abstract, div.example, div.take-away */
+/* This is typography, etc. – layout is below  */
+
+section {                           /* Four-value syntax {item: top right bottom left} */
+  background-color: rgb(217,239,255);    /* hsv(205,015,100) */
+  padding: 1.25% 1.25% 1.25% 1.25% ;
 }
 
-/* Responsive grid layout, using `box‐sizing:border‐box` */
+div.topic {
+  font-family: Verdana, "Liberation Sans", Geneva, sans-serif;
+  font-size: 1.125em;
+  line-height: 1.333em;
+/*  border: 1px solid black; */
+}
+
+div.abstract {
+/*  border: 1px solid black; */
+}
+
+div.example {
+/*  border: 1px solid black; */
+}
+
+div.example h3 {
+  font-family: "Liberation Sans Narrow", "Arial Narrow", Arial, sans-serif;
+  font-size: 0.75em;
+  line-height: 1.333em;
+}
+
+div.take-away {
+  font-size: 1.125em;
+  line-height: 1.333em;
+  text-align: right;
+/*  border: 1px solid black; */
+}
+
+
+
+/* Responsive grid layout */
 
 .row {
-  margin: 0 3%;        /* Two-value syntax {margin: vertical horizontal} */
-  margin-bottom: 0px;
+  margin: 0 0 0 0; /* Four-value syntax {margin: top right bottom left} */
 }
 .row:last-child {
   margin-bottom: 3%;
 }
-/*
-[class*="col-"] {
-  padding: 40px;
-}
-*/
+
 
 @media all and ( min-width: 600px ) {
 
-    .col-1 {
+    .topic {
       float: left;
       width: 33%;
-      padding-left: 3%;
-      padding-right: 1.5%;
+      padding-left: 1.25%;
+      padding-right: 1.25%;
     }
-    .col-2 {
+    .example {
+      float: left;
+      width: 33%;
+      padding-left: 1.25%;
+      padding-right: 1.25%;
+    }
+    .abstract {
       float: left;
       width: 51%;
-      padding-left: 1.5%;
-      padding-right: 3%;
+      padding-left: 1.25%;
+      padding-right: 1.25%;
+    }
+    .take-away {
+      float: left;
+      width: 51%;
+      padding-left: 1.25%;
+      padding-right: 1.25%;
     }
 
     /* CSS image replacement */
@@ -187,7 +182,7 @@ main a:focus {
 
 @media all and ( max-width: 599px ) {
 
-/* Fall-back image replacement */
+    /* CSS image replacement */
 
     #exrsa {
       width: 100px;
@@ -211,6 +206,17 @@ main a:focus {
     	display: none;
 	  }
 
+}
+
+
+/* Footer */
+footer {
+}
+footer p.credits {
+}
+footer ul.validators {
+}
+footer ul.validators li {
 }
 
 
