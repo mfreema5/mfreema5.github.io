@@ -1,5 +1,6 @@
 /* screen.css: Screen Styles */
 
+/***************************************************************************************/
 
 /* Base Styles */
 
@@ -12,204 +13,437 @@ i,em,cite { font-style: italic; }
 /* Dotted border and help cursor to abbr and acronym: */
 abbr,acronym { border-bottom: 1px dotted; cursor: help; }
 
-/* resets */
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+/***************************************************************************************/
+/*                                                  Element hierarchy:
+                                                      <body>
+                                                        <main>
+                                                          <article id="[area]">
+                                                            <section id="[focus]">
+                                                              <div class="topic">
+                                                              <div class="abstract">
+                                                              <div class="example">
+                                                              <div class="take-away">  */
+
+
+html {
+  box-sizing: border-box;                            /* Set for use by layout later on */
 }
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
+/***************************************************************************************/
+/* Typography, color, etc. - Layout is farther down. */
 
-
-/* Body */
-
-body {
+body {                                                  /* Body - everything displayed */
   font-family:  Helvetica, "Liberation Sans Narrow", Arial, sans-serif;
-  font-size: 0.75em;
-  line-height: 1.333em;
+  background-color: rgb(173,191,204);
 }
 
-
-/* Header */
-header {
+header {                                                  /* Header - top of page info */
+  font-family: Verdana, "Liberation Sans", Geneva, sans-serif;
+  margin-left: 1%;
 }
 header h1 {
-  font-family: Verdana, "DejaVu Sans", Geneva, sans-serif;
   font-size: 1.875em;
   line-height: 1.333em;
 }
-header h1 a {
-}
-header p.tagline {
-}
-header ul.accessibility {
+header p {
+  font-size: 1em;
 }
 
-
-/* Element hierarchy:
-    <main>
-      <article id="[area]">
-        <section id="[focus]">
-          <div class="topic">
-          <div class="abstract">
-          <div class="example">
-          <div class="take-away">
-*/
-
-
-/* Main */
-
-main {
+main {                                                          /* Main - the content  */
 }
 
-/* Article ("Area") - contains element "section" */
-
-article {
-    background-color: rgb(242,250,255);    /* hsv(205,005,100) */
-    padding: 3.0%;
+article {                                      /* Article - contains element «section» */
+  background-color: rgb(195,215,230);
+}
+article h1 {
+  font-size:   1.250em;
+  line-height: 1.2;
 }
 
-article h2 {
-  font-size: 1.5em;
-  line-height: 1.333em;
+section {                                           /* Section - contains divs .topic, */
+    background-color: rgb(217,239,255);             /* .abstract, .example, .take-away */
 }
 
-/* Section ("focus") - contains div.topic, div.abstract, div.example, div.take-away */
-/* This is typography, etc. – layout is below  */
-
-section {                           /* Four-value syntax {item: top right bottom left} */
-  background-color: rgb(217,239,255);    /* hsv(205,015,100) */
-  padding: 1.25% 1.25% 1.25% 1.25% ;
-}
-
-div.topic {
+div.topic p {
   font-family: Verdana, "Liberation Sans", Geneva, sans-serif;
-  font-size: 1.125em;
-  line-height: 1.333em;
-/*  border: 1px solid black; */
+  font-size:   1.000em;
+  line-height: 1.125;
+  text-shadow: rgb(217,239,255)  0.1em  0     2px,     /* color x-offset y-offset blur */
+               rgb(217,239,255) -0.1em  0     2px,
+               rgb(217,239,255)  0      0.1em 2px,
+               rgb(217,239,255)  0     -0.1em 2px,
+               rgb(217,239,255)  0.1em  0.1em 2px,
+               rgb(217,239,255) -0.1em  0.1em 2px,
+               rgb(217,239,255)  0.1em -0.1em 2px,
+               rgb(217,239,255) -0.1em -0.1em 2px;
 }
-
-div.abstract {
-/*  border: 1px solid black; */
-}
-
-div.example {
-/*  border: 1px solid black; */
-}
-
 div.example h3 {
-  font-family: "Liberation Sans Narrow", "Arial Narrow", Arial, sans-serif;
-  font-size: 0.75em;
-  line-height: 1.333em;
+  font-size:   0.750em;
+  line-height: 1.375;
+}
+div.abstract p {
+  font-size:   0.875em;
+  line-height: 1.250;
+  margin-bottom:  1.125em;
+}
+div.take-away p {
+  font-size:   1.000em;
+  line-height: 1.500;
+  text-align:  right;
+  text-shadow: rgb(217,239,255)  0.1em  0     2px,     /* color x-offset y-offset blur */
+               rgb(217,239,255) -0.1em  0     2px,
+               rgb(217,239,255)  0      0.1em 2px,
+               rgb(217,239,255)  0     -0.1em 2px,
+               rgb(217,239,255)  0.1em  0.1em 2px,
+               rgb(217,239,255) -0.1em  0.1em 2px,
+               rgb(217,239,255)  0.1em -0.1em 2px,
+               rgb(217,239,255) -0.1em -0.1em 2px;
 }
 
-div.take-away {
-  font-size: 1.125em;
-  line-height: 1.333em;
-  text-align: right;
-/*  border: 1px solid black; */
+/***************************************************************************************/
+/*        Layout                          Element hierarchy:
+/* with responsive boxen                      <body>
+/*                                               <main>
+/*                                                 <article id="[area]">
+/*                                                   <section id="[focus]">
+/*                                                     <div class="topic">
+/*                                                     <div class="abstract">
+/*                                                     <div class="example">
+/*                                                     <div class="take-away">
+/***************************************************************************************/
+
+@media all and ( min-width: 1024px ) {
+
+  .o1024 { display: inline; }
+  .u1024 { display: none; }
+
+  body {
+    padding: 6.25vw 6.25vw;
+  }
+
+  main{
+    margin: 3.125vw 3.125vw;
+  }
+  article {
+   font-size: 1.000em;                        /* The base "em" is inherited from here. */
+   display: block;
+   position: relative;
+   margin:  1.375vw;                                          /* vw = "viewport width" */
+   padding: 1.375vw;                                                    /* 0.375 = 3/8 */
+  }
+
+ section {
+    display:   block;
+    position:  relative; left: 1.125pw; right: auto;
+    width:     96.625%;
+    padding:   1.375vw;                                                /* 1.375 = 11/8 */
+    margin:    0 1.375vw 0.875vw 1.375vw;                              /* 0.875 =  7/8 */
+  }                                 /* Four-value syntax {item: top right bottom left} */
+
+  div.topic, div.example, div.abstract, div.take-away {
+    display: inline-block;
+    position: relative;
+    padding: 1.875vw 1.250vw;
+    /* border: 1px solid black; */
+  }
+
+  div.topic {
+    vertical-align: top;
+    width: 98%;
+    z-index: 2;                               /* On top of example graphic, if needed. */
+  }
+
+  div.example {
+    float: right;
+    width: 1%;
+    padding: 1.875vw 0 0 0;                      /* Pics should have their own padding.*/
+  }
+
+  div.abstract {
+    vertical-align: bottom;
+    text-align: baseline;
+    padding-top: 2em;
+    width: 32%;
+  }
+
+  div.take-away {
+    width: 65%;
+    z-index: 2;                               /* On top of example graphic, if needed. */
+  }
+                                                  /* CSS image replacement at > 1024px */
+  div.example h3 {
+    width:  10px;
+	  height: 10px;
+  }
+
+  #example-tcid::before {
+    content: " ";
+    margin: 1.875em 0 0 -390px;                         /* extra top margin because    */
+    position: absolute; top:1.875; right: 0;            /* longer topics at this width */
+    width:  400px;
+    height: 400px;
+    z-index: 1;
+    background-image: url("gfx/P10/p10-400.png");
+    background-repeat: no-repeat;
+  }
+  #example-psyc380::before {
+    content: " ";
+    margin: 1.875em 0 0 -390px;
+    position: absolute; top:1.875; right: 0;
+    width:  400px;
+    height: 400px;
+    z-index: 1;
+    background-image: url("gfx/PSED/rsa-400.png");
+    background-repeat: no-repeat;
+  }
+  #example-ux::before {
+    content: " ";
+    margin: 1.875em 0 0 -390px;
+    position: absolute; top:1.875; right: 0;
+    width:  400px;
+    height: 400px;
+    z-index: 1;
+    background-image: url("gfx/SortCPS/sortcps-400.png");
+    background-repeat: no-repeat;
+  }
+  #example-iso17025::before {
+    content: " ";
+    margin: 1.875em 0 0 -390px;
+    position: absolute; top:1.875; right: 0;
+    width:  400px;
+    height: 400px;
+    z-index: 1;
+    background-image: url("gfx/LIS-96.jpg");
+    background-repeat: no-repeat;
+  }
+  #example-stands-regs::before {
+    content: " ";
+    margin: 1.875em 0 0 -390px;
+    position: absolute; top:1.875; right: 0;
+    width:  400px;
+    height: 400px;
+    z-index: 1;
+    background-image: url("gfx/LIS-96.jpg");
+    background-repeat: no-repeat;
+  }
+
+  div.example span {
+    display: none;
+	}
+
 }
 
+/***************************************************************************************/
+                                    /* Four-value syntax {item: top right bottom left} */
+                                    /* Two-value syntax  {item:  vertical  horizontal} */
 
+@media all and ( min-width: 600px ) and ( max-width: 1023px ) {
 
-/* Responsive grid layout */
+  .o1024 { display: none; }
+  .u1024 { display: inline; }
 
-.row {
-  margin: 0 0 0 0; /* Four-value syntax {margin: top right bottom left} */
+  article {
+   font-size: 1.000em;                        /* The base "em" is inherited from here. */
+   display: block;
+   position: relative;
+   margin:  1.375vw;                                          /* vw = "viewport width" */
+   padding: 1.375vw;                                                    /* 0.375 = 3/8 */
+  }
+
+ section {
+    display: block;
+    position: relative; left: 1.125pw; right: auto;
+    width: 96.625%;
+    padding: 1.375vw;                                                  /* 1.375 = 11/8 */
+    margin: 0 1.375vw 0.875vw 1.375vw;                                 /* 0.875 =  7/8 */
+  }                                 /* Four-value syntax {item: top right bottom left} */
+
+  div.topic, div.example, div.abstract, div.take-away {
+    display: inline-block;
+    position: relative;
+    padding: 1.875vw 1.250vw;
+    /* border: 1px solid black; */
+  }
+
+  div.topic {
+    vertical-align: top;
+    width: 98%;
+    z-index: 2;                               /* On top of example graphic, if needed. */
+  }
+
+  div.example {
+    float: right;
+    width: 1%;
+    padding: 1.875vw 0 0 0;                      /* Pics should have their own padding.*/
+  }
+
+  div.abstract {
+    vertical-align: bottom;
+    text-align: baseline;
+    padding-top: 2em;
+    width: 32%;
+  }
+
+  div.take-away {
+    width: 65%;
+    z-index: 2;                               /* On top of example graphic, if needed. */
+  }
+
+                                      /* CSS image replacement at > 600px and < 1024px */
+  div.example h3 {
+    width:  10px;
+	  height: 10px;
+  }
+
+  #example-tcid::before {
+    content: " ";
+    margin: 0 0 0 -290px;
+    position: absolute; top:0; right: 0;
+    width:  300px;
+    height: 300px;
+    z-index: 1;
+    background-image: url("gfx/P10/p10-300.png");
+    background-repeat: no-repeat;
+  }
+  #example-psyc380::before {
+    content: " ";
+    margin: 0 0 0 -290px;
+    position: absolute; top:0; right: 0;
+    width:  300px;
+    height: 300px;
+    z-index: 1;
+    background-image: url("gfx/PSED/rsa-300.png");
+    background-repeat: no-repeat;
+  }
+  #example-ux::before {
+    content: " ";
+    margin: 1.875em 0 0 -290px;
+    position: absolute; top:0; right: 0;
+    width:  300px;
+    height: 300px;
+    z-index: 1;
+    background-image: url("gfx/SortCPS/sortcps-crop-300.png");
+    background-repeat: no-repeat;
+  }
+  #example-iso17025::before {
+    content: " ";
+    margin: 1.875em 0 0 -290px;
+    position: absolute; top:0; right: 0;
+    width:  300px;
+    height: 300px;
+    z-index: 1;
+    background-image: url("gfx/LIS-96.jpg");
+    background-repeat: no-repeat;
+  }
+  #example-stands-regs::before {
+    content: " ";
+    margin: 1.875em 0 0 -290px;
+    position: absolute; top:0; right: 0;
+    width:  300px;
+    height: 300px;
+    z-index: 1;
+    background-image: url("gfx/LIS-96.jpg");
+    background-repeat: no-repeat;
+  }
+
+  div.example span {
+    display: none;
+	}
 }
-.row:last-child {
-  margin-bottom: 3%;
-}
 
-
-@media all and ( min-width: 600px ) {
-
-    .topic {
-      float: left;
-      width: 33%;
-      padding-left: 1.25%;
-      padding-right: 1.25%;
-    }
-    .example {
-      float: left;
-      width: 33%;
-      padding-left: 1.25%;
-      padding-right: 1.25%;
-    }
-    .abstract {
-      float: left;
-      width: 51%;
-      padding-left: 1.25%;
-      padding-right: 1.25%;
-    }
-    .take-away {
-      float: left;
-      width: 51%;
-      padding-left: 1.25%;
-      padding-right: 1.25%;
-    }
-
-    /* CSS image replacement */
-
-    #exrsa {
-      width:  200px;
-	    height: 180px;
-	    background-image: url("gfx/PSED/rsa-200.png");
-    	background-repeat: no-repeat;
-    }
-
-    #exrsa span {
-    	display: none;
-	  }
-
-    #exsp {
-      width:  200px;
-	    height: 200px;
-	    background-image: url("gfx/P380/scatterplot-200.png");
-    	background-repeat: no-repeat;
-    }
-
-    #exsp span {
-    	display: none;
-	  }
-
-}
+/***************************************************************************************/
 
 @media all and ( max-width: 599px ) {
 
-    /* CSS image replacement */
+  .o1024 { display: none; }
+  .u1024 { display: inline; }
 
-    #exrsa {
-      width: 100px;
-	    height: 90px;
-	    background-image: url("gfx/PSED/rsa-100.png");
-    	background-repeat: no-repeat;
-    }
+  article {
+    font-size: 1.125em;                       /* The base "em" is inherited from here. */
+    display: block;
+    position: relative;
+    padding: 0.625em 0;
+    margin:  1em 0;                 /* Two-value syntax  {item:  vertical  horizontal} */
+  }
+  article h1 {
+    margin-left: 1%;
+  }
 
-    #exrsa span {
-    	display: none;
-	  }
+  section {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding: 1%;
+    margin: 0.375em 0;              /* Two-value syntax  {item:  vertical  horizontal} */
+  }
 
-    #exsp {
-      width:  100px;
-	    height: 100px;
-	    background-image: url("gfx/P380/scatterplot-100.png");
-    	background-repeat: no-repeat;
-    }
+  div.topic, div.example, div.abstract, div.take-away {
+    display: inline-block;
+    position: relative;
+  }
 
-    #exsp span {
-    	display: none;
-	  }
+  div.example {
+    float: right;
+  }
 
+  div.abstract {
+    clear: right;
+  }
+
+  div.take-away p {
+    padding-top:  0.375em;
+    margin-left:  4.250%;
+    margin-right: 2.125%;
+    line-height:  1.2;
+  }
+                                                  /* CSS image replacement at < 599px  */
+    div.example h3 {
+    width:  10px;
+	  height: 10px;
+  }
+
+  #example-tcid {
+    width:  200px;
+	  height: 200px;
+	  background-image: url("gfx/P10/p10-200.png");
+    background-repeat: no-repeat;
+  }
+  #example-psyc380 {
+    width:  100px;
+	  height: 100px;
+	  background-image: url("gfx/PSED/rsa-100.png");
+    background-repeat: no-repeat;
+  }
+  #example-ux {
+    width:  100px;
+	  height: 100px;
+	  background-image: url("gfx/SortCPS/sortcps-crop-100.png");
+    background-repeat: no-repeat;
+  }
+  #example-iso17025 {
+    width:  100px;
+	  height: 100px;
+	  background-image: url("gfx/LIS-96.jpg");
+    background-repeat: no-repeat;
+  }
+  #example-stands-regs {
+    width:  100px;
+	  height: 100px;
+	  background-image: url("gfx/LIS-96.jpg");
+    background-repeat: no-repeat;
+  }
+
+  div.example span {
+    display: none;
+	}
 }
 
-
+/***************************************************************************************/
 /* Footer */
+
 footer {
 }
 footer p.credits {
@@ -220,4 +454,11 @@ footer ul.validators li {
 }
 
 
-
+/*
+     20% - rgb(43,48,51)
+     40% - rgb(87,96,102)
+     60% - rgb(130,143,153)
+     80% - rgb(173,191,204)
+     90% - rgb(195,215,230)
+    100% - rgb(217,239,255)
+*/
