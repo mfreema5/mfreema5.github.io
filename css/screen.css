@@ -125,6 +125,7 @@ div {
 }
 div.topic {
   vertical-align: top;
+  width: 100%;
 }
 div.abstract {
   vertical-align: bottom;
@@ -134,8 +135,8 @@ div.take-away {
 }
 
 /***************************************************************************************/
-                                                                    /* screen < 50 em */
-@media all and ( max-width: 50em ) {
+                                                                    /* screen < 48 em */
+@media all and ( max-width: 48em ) {
 
   .o1024 { display: none; }
   .u1024 { display: inline; }
@@ -168,8 +169,8 @@ div.take-away {
 }
 
 /***************************************************************************************/
-                                                               /* 50em < screen < 64em */
-@media all and ( min-width: 50em ) and ( max-width: 64em ) {
+                                                             /* 48 em < screen < 64 em */
+@media all and ( min-width: 48em ) and ( max-width: 64em ) {
 
   .o1024 { display: none; }
   .u1024 { display: inline; }
