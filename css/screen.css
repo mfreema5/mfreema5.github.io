@@ -4,7 +4,7 @@
                                                                         /* Base Styles */
 
                                                     /* Bold on headings, b, and strong */
-h1,h2,h3,h4,h5,h6,b,strong { font-weight: bold; }
+h1,h2,h3,h4,h5,h6,b,strong { font-weight: bold; font-size: 115%; }
                                                          /* Italic on i, em, and cite: */
 i,em,cite { font-style: italic; }
                                  /* Dotted border and help cursor to abbr and acronym: */
@@ -21,255 +21,202 @@ html {
 }
 
 /***************************************************************************************/
-/* Typography, color, etc.                Element hierarchy:                           */
+/* Typography, color, etc.          Basic element hierarchy:                           */
 /* Layout is farther down.                    <body>                                   */
-/*                                               <main>                                */
-/*                                                 <article id="[area]">               */
-/*                                                   <section id="[focus]">            */
-/*                                                     <div class="topic">             */
-/*                                                     <div class="abstract">          */
-/*                                                     <div class="take-away">         */
+/*                                              <header>                               */
+/*                                              <main>                                 */
+/*                                                <form id="[function]">               */
 /***************************************************************************************/
 
-body {                                           /* Body - everything that's displayed */
-  font-family:  Helvetica, "Liberation Sans Narrow", Arial, sans-serif;
+body {
   background-color: rgb(173,191,204);
+  min-height: 100vw;            /* I don't have the js skills to do this any other way */
+  font-family: "Istok Web", sans-serif;
+                        /* The Amtrak site uses “Frutiger Light" which is a commercial */
+                        /* font from Adobe. “Istok Web” is a free alternative          */
+                        /* recommended at « joelcrawfordsmith.com/new/font/frutiger »  */
 }
 
-header {                                                  /* Header - top of page info */
-  font-family: Verdana, "Liberation Sans", Geneva, sans-serif;
-  margin-left: 1%;
-}
-header h1 {
-  font-size:   1.875em;
-  line-height: 1.333em;
-}
-header p {
-  font-size: 1.125em;
+main {
+  background-color: rgb(173,191,204);
+  border-bottom: 2em solid rgb(0, 66, 92);          /* bottom border to balance header */
 }
 
-main {                                                     /* Main - the main content  */
-}
-
-article {                                      /* Article - contains element «section» */
+form {
   background-color: rgb(195,215,230);
 }
-article h1 {
-  font-size:   1.250em;
-  line-height: 1.2;
-}
-                                                    /* Section - contains divs .topic, */
-section {                                                     /* .abstract, .take-away */
-    background-color: rgb(217,239,255);
+
+fieldset {
+  background-color: rgb(217,239,255);
 }
 
-div.topic p {
-  font-family: Verdana, "Liberation Sans", Geneva, sans-serif;
-  font-size:   1.000em;
-  line-height: 1.125;
-  text-shadow: rgb(217,239,255)  0.1em  0     2px,     /* color x-offset y-offset blur */
-               rgb(217,239,255) -0.1em  0     2px,
-               rgb(217,239,255)  0      0.1em 2px,     /* This is a fallback, in case  */
-               rgb(217,239,255)  0     -0.1em 2px,     /* the text runs over a         */
-               rgb(217,239,255)  0.1em  0.1em 2px,     /* background image, to outline */
-               rgb(217,239,255) -0.1em  0.1em 2px,     /* the text with the same color */
-               rgb(217,239,255)  0.1em -0.1em 2px,     /* as the background, so the    */
-               rgb(217,239,255) -0.1em -0.1em 2px;     /* text is still readable.      */
+legend {
+  font-size: 1.125em;
+  line-height: 1.250em;
+  position: relative;
+  top: 0.875em;                                    /* line-height × (2/3), and rounded */
 }
 
-div.abstract p {
-  font-size:   0.875em;
-  line-height: 1.250;
-  margin-bottom:  1.125em;
+ul.li {                         /* Unordered list as quick-n-easy container for inputs */
+  list-style-type: none;                          /* Don't actually need bullets, etc. */
+  line-height: 80%;
 }
 
-div.take-away p {
-  font-size:   1.000em;
-  line-height: 1.500;
-  text-align:  right;
-  text-shadow: rgb(217,239,255)  0.1em  0     2px,
-               rgb(217,239,255) -0.1em  0     2px,
-               rgb(217,239,255)  0      0.1em 2px,
-               rgb(217,239,255)  0     -0.1em 2px,
-               rgb(217,239,255)  0.1em  0.1em 2px,
-               rgb(217,239,255) -0.1em  0.1em 2px,
-               rgb(217,239,255)  0.1em -0.1em 2px,
-               rgb(217,239,255) -0.1em -0.1em 2px;
+label {
+  font-family: Arial, sans-serif;             /* Again, mirroring the use Amtrak site  */
+  display: inline-block;                      /* which uses Arial extensively, AFAICT. */
+  font-size: 1.000em;
 }
+
+#address-checkbox {
+  font-size: 0.875em;
+}
+
+                                         /* Lining things up - See footnote about calcs*/
+#userpass label      { width: 14em; }
+#user-account label  { width: 10em; }
+#user-name label     { width:  7em; }
+#user-mailing label  { width:  9em; }
+#user-billing label  { width:  9em; }
+#user-phone label    { width:  5em; }
+#user-stations label { width: 11em; }
 
 /***************************************************************************************/
-/*        Layout                          Element hierarchy:                           */
-/* with responsive boxen                      <body>                                   */
-/*                                               <main>                                */
-/*                                                 <article id="[area]">               */
-/*                                                   <section id="[focus]">            */
-/*                                                     <div class="topic">             */
-/*                                                     <div class="abstract">          */
-/*                                                     <div class="take-away">         */
+/*        Layout                    Basic element hierarchy:                           */
+/*                                            <body>                                   */
+/*                                              <header>                               */
+/*                                              <main>                                 */
+/*                                                <form id="[function]">               */
 /***************************************************************************************/
 
-article {                                                           /* Default layouts */
+/***************************************************************************************/
+                                                                    /* Default layouts */
+
+header {                                                  /* Header - top of page info */
+  background-color: rgb(0, 66, 92);  /* taken from www.amtrakguestrewards.com */
+  background-image: url("img/logo-core.svg");
+  background-origin: content-box;
+  background-clip: border-box;
+  background-size: auto 90%;
+  background-repeat: no-repeat;
+  max-width: 64em;
+}
+
+main {
+  max-width: 64em;
+}
+
+fieldset {
   display: block;
   position: relative;
+  margin: 0.250em;
+  margin-top: -0.250em;                       /* Negative because <legend> is RIVETED… */
+  padding: 2em 0.250em 1em 0.125em;                           /* …to <fieldset> border */
+  background-color: rgb(217,239,255);
 }
 
-section {
-  display: inline-block;
-  position: relative;
+#choose fieldset {                /* Now I know why most people hide <legend> elements */
+  margin: 0.250em 0 0.250em 0;        /* The previous <legend>-induced hack has to be… */
+  padding: 0em 0.250em 0em 0.250em;              /* …undone, and the border needs room */
+  border-top:    0.625em solid rgb(  0, 66, 92);
+  border-right:  0.250em solid rgb(195,215,230);
+  border-bottom: 0.625em solid rgb(  0, 66, 92);                     /* <header> color */
+  border-left:   0.250em solid rgb(195,215,230);                     /* <form>   color */
 }
 
-div {
+input, select {
   display: inline-block;
-  position: relative;
-  margin: 0 0 0 0;
 }
-div.topic {
-  vertical-align: top;
-  width: 100%;
+
+#choose button {
+  min-width: 8em;
 }
-div.abstract {
-  vertical-align: bottom;
+
+#address-checkbox {
+  margin-left: 1em;                            /* Twice the pad+margin to field labels */
 }
-div.take-away {
-  vertical-align: bottom;
+
+div.sender {                                      /* Wrapper for the “submit” buttons. */
+  display: block;
+  margin: 0.250em;
+  padding: 1em 0.250em 1em 0.125em;
+  background-color: rgb(217,239,255);
 }
 
 /***************************************************************************************/
-                                                                    /* screen < 48 em */
-@media all and ( max-width: 48em ) {
-
-  .o1024 { display: none; }
-  .u1024 { display: inline; }
+                                                                    /* screen < 47 em */
+@media all and ( max-width: 47em ) {
 
   body {
-    padding: 1%
+    background-image: url("img/backdrop-under-48em.jpg");
+    background-size: cover;
   }
 
-  article {
+  header {
+    background-position: center;
+    min-height: 2em ;             /* nothing in header, so this defines its height */
+  }
+
+  #choose button {
     display: block;
-    position: relative;
-    font-size: 1.000em;
-    padding: 1%;
-    margin:  5% 0 5% 2%;
-  }
-  article h1 {
-    margin-left: 1%;
-  }
-
-  section {
-    display: inline-block;
-    position: relative;
-    padding: 2%;
-    margin: 2% 0 2% 2%;
-  }
-
-  div {
-     padding: 0.5em;
+    margin: 1.25em auto 1.25em auto;
   }
 }
 
 /***************************************************************************************/
                                                              /* 48 em < screen < 64 em */
-@media all and ( min-width: 48em ) and ( max-width: 64em ) {
-
-  .o1024 { display: none; }
-  .u1024 { display: inline; }
+@media all and ( min-width: 48em ) {
 
   body {
-    padding: 2.5%;
+    background-image: url("img/backdrop-over-48em-XL.jpg");
+    background-size: cover;
   }
 
-  article {
-    font-size: 1.000em;
-    padding: 1.5em;
-    margin:  5% 0 5% 2em;
+  header {
+    background-position: top 5% left 16%;         /* (100 - 90) ÷ 2 = 5%, to center it */
+    min-height: 2em ;
   }
 
-  section {
-    display: inline-block;
-    position: relative;
-    padding: 2% 2% 1em 1em;
-    margin:  2% 0  2%  2em;
-    background-origin: content-box;
-    background-clip: border-box;
-    background-position: top 3.5em right;
-    background-size: 25vw auto;
-    background-repeat: no-repeat;
+  main {
+    border-left: 0.8% solid rgb(0, 66, 92);
+    border-right: 0.8% solid rgb(0, 66, 92);
   }
 
-  div {
-    padding: 1.5em;
+  #choose button {
+    display: in-line block;
+    margin: 1.250em 5% 1.250em 5%;
   }
-
-  div.abstract {
-    width: 62%;
-  }
-
-  div.take-away {
-    width: 35%;
-  }
-                                                      /* images at > 50 em and < 64 em */
-  section#tcid        { background-image: url("gfx/P10/p10-300.png"); }
-  section#psyc380     { background-image: url("gfx/PSED/rsa-300.png"); }
-  section#ux          { background-image: url("gfx/SortCPS/sortcps-crop-300.png"); }
-  section#iso17025    { background-image: none; }
-  section#stands-regs { background-image: none; }
 }
 
 /***************************************************************************************/
-
-@media all and ( min-width: 64em ) {                                 /* 64 em < screen */
-
-  .o1024 { display: inline; }
-  .u1024 { display: none; }
+                                                                     /* 64 em < screen */
+@media all and ( min-width: 64em ) {
 
   body {
-    padding: 5%;
+    background-image: url("img/backdrop-over-48em-XL.jpg");
+    background-size: cover;
   }
 
-  main{
-    margin: 3.125vw 3.125vw;
+  header {
+    background-position: top 5% left 16%;
+    min-height: 3em ;
   }
 
-  article {
-    font-size: 1.000em;
-    padding: 1.5em;
-    margin:  5% 0 5% 2em;
+  main {
+    border-left: 0.5em solid rgb(0, 66, 92);
+    border-right: 0.5em solid rgb(0, 66, 92);
   }
 
-  section {
-    display: inline-block;
-    position: relative;
-    padding: 2% 2% 1em 1em;
-    margin:  2% 0  2%  2em;
-    background-origin: content-box;
-    background-clip: border-box;
-    background-position: top 3.5em right;
-    background-size: 25vw auto;
-    background-repeat: no-repeat;
+  #choose button {
+    display: in-line block;
+    margin: 1.250em 5% 1.250em 5%;
   }
-
-  div {
-    padding: 1.5em;
-  }
-
-  div.abstract {
-    width: 62%;
-  }
-
-  div.take-away {
-    width: 35%;
-  }
-                                                                  /* images at > 64 em */
-  section#tcid        { background-image: url("gfx/P10/p10-400.png"); }
-  section#psyc380     { background-image: url("gfx/PSED/rsa-400.png"); }
-  section#ux          { background-image: url("gfx/SortCPS/sortcps-400.png"); }
-  section#iso17025    { background-image: none; }
-  section#stands-regs { background-image: none; }
 }
 
 /***************************************************************************************/
-
+/* Footnote:                                                                           */
+/*           There's a BASH script at ~/src/Em-length.sh for calculating label widths. */
+/***************************************************************************************/
                                                          /*    Reference for colors    */
                                                          /*     20% - rgb(43,48,51)    */
                                                          /*     40% - rgb(87,96,102)   */
@@ -277,4 +224,3 @@ div.take-away {
                                                          /*     80% - rgb(173,191,204) */
                                                          /*     90% - rgb(195,215,230) */
                                                          /*    100% - rgb(217,239,255) */
-
