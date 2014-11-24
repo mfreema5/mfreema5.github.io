@@ -2,337 +2,158 @@
 <html lang="en">
 
   <head>
-    <title>Redesigned login/enrollment form for Amtrak Guest Rewards</title>
+    <title>MJF - Single Page Web Presence</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" media="screen,print" href="css/reset.css" />
-    <link rel="stylesheet" href="css/formalize.css" />
     <link rel="stylesheet" href="css/screen.css" />
-    <link href='http://fonts.googleapis.com/css?family=Istok+Web:400,700' rel='stylesheet' type='text/css' />
+    <link rel="icon" href="css/gfx/favicon.ico" type="image/x-icon" />
     <script src="css/modernizr.custom.99475.js"></script>
+
   </head>
+
   <body>
-    <header><!--logo as background image--></header>
+
+    <header>
+      <h1>
+        Michael J. Freeman
+      </h1>
+      <p>
+        Experience and skills<span class="o1024"> — <i>“Learning to help others understand.”</i></span>
+      </p>
+    </header>
+
     <main>
-      <form id="login" action="#" method="post" style="display: none;">
-        <fieldset id="userpass">
-          <legend>Log in to your existing account:</legend>
-          <ul>
-            <li>
-              <label for="username">Username (email address):</label>
-              <input type="email" id="username" name="username" />
-            </li>
-            <li>
-              <label for="password">Current password:</label>
-              <input type="text" id="password" name="password" autocomplete="off" />
-            </li>
-          </ul>
-        </fieldset>
-        <div class="sender">
-          <button form="login" type="button" id="submit-login">SEND LOGIN</button>
-        </div>
-      </form>
-      <form id="choose"><!-- Not really a form, but simplifies CSS to treat it as one -->
-        <fieldset id="toggles">
-          <button form="choose" type="button" id="gologin">GO LOGIN</button>
-          <button form="choose" type="button" id="goenroll">GO ENROLL</button>
-        </fieldset>
-        <script>
-          function toggleElementDisplay (targetId) {
-            var targetBlock = document.getElementById(targetId);
-            targetBlock.style.display = ( targetBlock.style.display == 'none' ? 'block' : 'none' );
-          };
-          var button = document.getElementById('gologin');
-          button.addEventListener('click', function() {
-            toggleElementDisplay('login');
-          });
-          var button = document.getElementById('goenroll');
-          button.addEventListener('click', function() {
-            toggleElementDisplay('enroll');
-          });
-        </script>
-      </form>
-      <form id="enroll" autocomplete="on" action="#" method="post" style="display: none;">
-        <h1>Enroll with Amtrak Guest Rewards&reg;</h1>
-        <fieldset id="user-account">
-          <legend>Define login information:</legend>
-          <ul>
-            <li>
-              <label for="user-email">Email address:</label>
-              <input type="email" id="user-email" />
-            </li>
-            <li>
-              <label for="Dpassword">Create password:</label>
-              <input type="text" id="Dpassword" />
-            </li>
-            <li>
-              <li>
-              <label for="Spassword">Repeat password:</label>
-             <input type="text" id="Spassword" />
-            </li>
-          </ul>
-        </fieldset>
-        <fieldset id="user-name">
-          <legend>Your profile:</legend>
-          <ul>
-            <li>
-              <label for="mistress">Title:</label>
-              <select id="mistress" name="mistress-return">
-                <optgroup label="Title">
-                  <option selected>&nbsp;</option>
-                  <option>Dr.</option>
-                  <option>Miss</option>
-                  <option>Mr.</option>
-                  <option>Mrs.</option>
-                  <option>Ms.</option>
-                </optgroup>
-              </select>
-            </li>
-            <li>
-              <label for="name-first">First name:</label>
-              <input type="text" id="name-first" placeholder="Your given name" />
-            </li>
-            <li>
-              <label for="name-m">Middle init.:</label>
-              <input type="text" id="name-m" placeholder="."/>
-            </li>
-            <li>
-              <label for="name-last">Family name:</label>
-              <input type="text" id="name-last" placeholder="Your family name"/>
-            </li>
-            <li>
-              <label for="junior-senior">Suffix:</label>
-              <select id="junior-senior" name="junior-senior-return">
-                <optgroup label="Suffix">
-                  <option value="" selected>&nbsp;</option>
-                  <option value="sr">Sr.</option>
-                  <option value="jr">Jr.</option>
-                  <option value="iii">III</option>
-                  <option value="iv">IV</option>
-                </optgroup>
-              </select>
-            </li>
-          </ul>
-        </fieldset>
-        <fieldset id="user-mailing">
-          <legend>Mailing address</legend>
-          <ul>
-            <li>
-              <label for="mail-street-number">Address:</label>
-              <input type="text" id="mail-street-number" />
-            </li>
-            <li>
-              <label for="mail-unit-etc"></label>
-              <input type="text" id="mail-unit-etc" />
-            </li>
-            <li>
-              <label for="mail-city">City:</label>
-              <input type="text" id="mail-city" />
-            </li>
-            <li>
-              <label for="mail-state">State/Provence:</label>
-              <select id="mail-state" name="mail-state-return">
-                <optgroup label="State/Province">
-                  <option value="" selected>&nbsp;</option>
-                  <option value="al">Alabama</option>
-                  <option value="ak">Alaska</option>
-                  <option value="az">Arizona</option>
-                  <option value="ar">Arkansas</option>
-                  <option value="ca">California</option>
-                  <option value="co">Colorado</option>
-                  <option value="ct">Connecticut</option>
-                  <option value="de">Delaware</option>
-                  <option value="dc">District of Columbia</option>
-                  <option value="fl">Florida</option>
-                  <option value="ga">Georgia</option>
-                  <option value="hi">Hawaii</option>
-                  <option value="id">Idaho</option>
-                  <option value="il">Illinois</option>
-                  <option value="in">Indiana</option>
-                  <option value="ia">Iowa</option>
-                  <option value="ks">Kansas</option>
-                  <option value="ky">Kentucky</option>
-                  <option value="la">Louisiana</option>
-                  <option value="me">Maine</option>
-                  <option value="md">Maryland</option>
-                  <option value="ma">Massachusetts</option>
-                  <option value="mi">Michigan</option>
-                  <option value="mn">Minnesota</option>
-                  <option value="ms">Mississippi</option>
-                  <option value="mo">Missouri</option>
-                  <option value="mt">Montana</option>
-                  <option value="ne">Nebraska</option>
-                  <option value="nv">Nevada</option>
-                  <option value="nh">New Hampshire</option>
-                  <option value="nj">New Jersey</option>
-                  <option value="nm">New Mexico</option>
-                  <option value="ny">New York</option>
-                  <option value="nc">North Carolina</option>
-                  <option value="nd">North Dakota</option>
-                  <option value="oh">Ohio</option>
-                  <option value="ok">Oklahoma</option>
-                  <option value="or">Oregon</option>
-                  <option value="pa">Pennsylvania</option>
-                  <option value="ri">Rhode Island</option>
-                  <option value="sc">South Carolina</option>
-                  <option value="sd">South Dakota</option>
-                  <option value="tn">Tennessee</option>
-                  <option value="tx">Texas</option>
-                  <option value="ut">Utah</option>
-                  <option value="vt">Vermont</option>
-                  <option value="va">Virginia</option>
-                  <option value="wa">Washington</option>
-                  <option value="wv">West Virginia</option>
-                  <option value="wi">Wisconsin</option>
-                  <option value="wy">Wyoming</option>
-                  <option value="ab">Alberta</option>
-                  <option value="bc">British Columbia</option>
-                  <option value="mb">Manitoba</option>
-                  <option value="nb">New Brunswick</option>
-                  <option value="nl">Newfoundland</option>
-                  <option value="nt">Northwest Territories</option>
-                  <option value="ns">Nova Scotia</option>
-                  <option value="nu">Nunavut</option>
-                  <option value="on">Ontario</option>
-                  <option value="pe">Prince Edward Island</option>
-                  <option value="qc">Quebec</option>
-                  <option value="sk">Saskatchewan</option>
-                  <option value="yt">Yukon</option>
-                </optgroup>
-              </select>
-            </li>
-            <li>
-              <label for="mail-zipcode">Zip/Postal-code:</label>
-              <input type="text" id="mail-zipcode" placeholder="00000" />
-            </li>
-          </ul>
-        </fieldset>
-        <div id="address-checkbox">
-          <input type="checkbox" id="show-billing" checked>
-          <label for="show-billing">My billing address is the same as my mailing address.</label>
-          <script>
-            var button = document.getElementById('show-billing');
-            button.addEventListener('click', function() {
-              toggleElementDisplay('user-billing');
-            });
-          </script>
-        </div>
-        <fieldset id="user-billing" style="display: none;">
-          <legend>Billing address</legend>
-          <ul>
-            <li>
-              <label for="bill-street-number">Address:</label>
-              <input type="text" id="bill-street-number" />
-            </li>
-            <li>
-              <label for="bill-unit-etc"></label>
-              <input type="text" id="bill-unit-etc" />
-            </li>
-            <li>
-              <label for="bill-city">City:</label>
-              <input type="text" id="bill-city" />
-            </li>
-            <li>
-              <label for="bill-state">State/Provence:</label>
-              <select id="bill-state" name="bill-state-return" >
-                <optgroup label="State/Province">
-                  <option value="" selected>&nbsp;</option>
-                  <option value="al">Alabama</option>
-                  <option value="ak">Alaska</option>
-                  <option value="az">Arizona</option>
-                  <option value="ar">Arkansas</option>
-                  <option value="ca">California</option>
-                  <option value="co">Colorado</option>
-                  <option value="ct">Connecticut</option>
-                  <option value="de">Delaware</option>
-                  <option value="dc">District of Columbia</option>
-                  <option value="fl">Florida</option>
-                  <option value="ga">Georgia</option>
-                  <option value="hi">Hawaii</option>
-                  <option value="id">Idaho</option>
-                  <option value="il">Illinois</option>
-                  <option value="in">Indiana</option>
-                  <option value="ia">Iowa</option>
-                  <option value="ks">Kansas</option>
-                  <option value="ky">Kentucky</option>
-                  <option value="la">Louisiana</option>
-                  <option value="me">Maine</option>
-                  <option value="md">Maryland</option>
-                  <option value="ma">Massachusetts</option>
-                  <option value="mi">Michigan</option>
-                  <option value="mn">Minnesota</option>
-                  <option value="ms">Mississippi</option>
-                  <option value="mo">Missouri</option>
-                  <option value="mt">Montana</option>
-                  <option value="ne">Nebraska</option>
-                  <option value="nv">Nevada</option>
-                  <option value="nh">New Hampshire</option>
-                  <option value="nj">New Jersey</option>
-                  <option value="nm">New Mexico</option>
-                  <option value="ny">New York</option>
-                  <option value="nc">North Carolina</option>
-                  <option value="nd">North Dakota</option>
-                  <option value="oh">Ohio</option>
-                  <option value="ok">Oklahoma</option>
-                  <option value="or">Oregon</option>
-                  <option value="pa">Pennsylvania</option>
-                  <option value="ri">Rhode Island</option>
-                  <option value="sc">South Carolina</option>
-                  <option value="sd">South Dakota</option>
-                  <option value="tn">Tennessee</option>
-                  <option value="tx">Texas</option>
-                  <option value="ut">Utah</option>
-                  <option value="vt">Vermont</option>
-                  <option value="va">Virginia</option>
-                  <option value="wa">Washington</option>
-                  <option value="wv">West Virginia</option>
-                  <option value="wi">Wisconsin</option>
-                  <option value="wy">Wyoming</option>
-                  <option value="ab">Alberta</option>
-                  <option value="bc">British Columbia</option>
-                  <option value="mb">Manitoba</option>
-                  <option value="nb">New Brunswick</option>
-                  <option value="nl">Newfoundland</option>
-                  <option value="nt">Northwest Territories</option>
-                  <option value="ns">Nova Scotia</option>
-                  <option value="nu">Nunavut</option>
-                  <option value="on">Ontario</option>
-                  <option value="pe">Prince Edward Island</option>
-                  <option value="qc">Quebec</option>
-                  <option value="sk">Saskatchewan</option>
-                  <option value="yt">Yukon</option>
-                </optgroup>
-              </select>
-            </li>
-            <li>
-              <label for="bill-zipcode">Zip/Postal-code:</label>
-              <input type="text" id="bill-zipcode" placeholder="00000" />
-            </li>
-          </ul>
-        </fieldset>
-        <fieldset id="user-phone">
-          <legend>Phone</legend>
-          <ul>
-            <li>
-              <label for="phone-type">Type:</label>
-              <select id="phone-type" name="phone-type-return">
-                <optgroup label="Type of phone">
-                  <option>Mobile</option>
-                  <option selected>Home</option>
-                  <option>Work</option>
-                </optgroup>
-              </select>
-            </li>
-            <li>
-              <label for="phone-number">Number:</label>
-              <input type="tel" id="phone-number" placeholder="000-000-0000" />
-            </li>
-          </ul>
-        </fieldset>
-        <div class="sender">
-          <button form="enroll" type="button" id="submit-enroll">SEND ENROLLMENT</button>
-        </div>
-      </form>
+      <article id="currently">
+      <h1>
+        Currently…
+      </h1>
+        <section id="tcid">
+          <div class="topic">
+            <p>
+              Technical Communication at <span class="u1024">IIT</span><span class="o1024">the Illinois Institute of Technology</span>
+            </p>
+          </div>
+          <div class="abstract">
+            <p>
+              I am a graduate student at the Illinois Institute of Technology, in the Master's program for Technical Communication and Information Design.  I choose the IIT program because, in my opinion, it is keeping pace with the changes in both the nature and medium of communication in the world.  These changes are largely driven by technology and the program at IIT is incorporating that technology into its TCID program.  One of my academic experiences I discuss below came from a course on “User Experience Research and Evaluation”, and this web page itself started as a project for a course on “Standards Based Web Design.”
+            </p>
+            <p>
+              In my graduate studies at IIT, it often feels as if—instead of learning answers—I'm merely learning more questions.  Or, rather, I'm learning <em>better</em> questions, which will hopefully be the <em>right</em> questions.  And I'm gaining skills which will be useful both in finding precise answers to the “right” questions, and in developing and implementing practical solutions based on those answers.<span class="o1024">Speaking of practical solutions, the research question for my master's thesis is: <i>How can you identify when practitioners take notice of research? Can you quantify this “practical impact”?</i></span>
+            </p>
+          </div>
+          <div class="take-away">
+            <p>
+              I'm earning a Master's degree in Technical Communication and Information Design at IIT<span class="o1024"> in a program that focuses on current communication technology</span>.
+            </p>
+          </div>
+        </section>
+      </article>
+
+      <article id="post-graduate">
+        <h1>
+          Post-graduate
+        </h1>
+        <section id="psyc380">
+          <div class="topic">
+            <p>
+              <span class="o1024">Project for </span>PSYC 380 “Advanced Statistics” at IIT <span class="o1024">leads to a research paper</span>
+            </p>
+          </div>
+          <div class="abstract">
+            <p>
+              I'm interested in the use—and mis-use—of multiple regression analysis in academic papers, so I took PSYC 380 ‘Advanced Statistics<span class="o1024"> – Applied Correlation and Regression</span>’ at IIT, even though the hours can't be applied toward my Master's degree.
+            </p>
+            <p>
+              For my final project for PSYC 380, I did an analysis of data based on a hypothesis developed by <a href="http://scholar.google.com/citations?user=4hGHWDcAAAAJ">Maija Renko</a><span class="o1024">, Associate Professor of Entrepreneurship at UIC.  The data came from the Panel Study of Entrepreneurial Dynamics II (<a href="http://www.psed.isr.umich.edu/psed/home">PSED-II</a>).  I employed a response-surface analysis technique (per <a href="http://link.springer.com/article/10.1007/s10869-010-9183-4">Shanock, <i>et al.</i> (2010)</a>), and the results were promising enough to receive funding at UIC to expand it into a research article.</span><span class="u1024"> at UIC.  The results were promising enough to receive funding for expansion into a research article.</span>
+            </p>
+            <p>
+              We're currently working on the final version of the paper.
+            </p>
+          </div>
+          <div class="take-away">
+            <p>
+              I'm working with a researcher at UIC on a paper that uses response-surface analysis.
+            </p>
+          </div>
+        </section>
+        <section id="ux">
+          <div class="topic">
+            <p>
+              Untangling a UX project<span class="o1024"> – Finding a solution to the “work knot” problem.</span>
+            </p>
+          </div>
+          <div class="abstract">
+            <p>
+              For a group project in the course “User Experience Research and Evaluation”, we looked at the process that parents use to select and enroll their children in Chicago Public Schools.  It turns out to be a much more involved and convoluted process than most people (including those of use on the team) expect.
+            </p>
+            <p>
+              As part of the “SortCPS” project, we had to create a work flow diagram that traced how information and documents moved between the people involved in the process.  However, unlike the work flow diagram for an office which shows how each employee is involved, SortCPS had at most two parents involved, and typically one of them was on one end of every work flow.  Our first “work flow” diagram looked more like a “work knot” diagram.
+            </p>
+            <p>
+              But then I realized that while there was just one person in the center of everything, we could think of her as taking on a variety of distinct roles.  By charting the flow between those roles, we could sub-divide the process into manageable pieces.  And so for the rest of the project we talked about the tasks done by the “Pref-Cor”, the “App-Cor”, the “Disco-Agent”, etc.
+            </p>
+            <p>
+              I like to talk about that contribution I made to SortCPS, because it's and example of what I enjoy doing: finding a solution to a problem that I can share with others.
+            </p>
+          </div>
+          <div class="take-away">
+            <p>
+              I enjoy finding solutions to difficult problems, especially if they can be shared.
+            </p>
+          </div>
+        </section>
+      </article>
+
+      <article id="industry-experience">
+      <h1>
+        Industry experience
+      </h1>
+        <section id="iso17025">
+          <div class="topic">
+            <p>
+              ISO 17025 documentation on a wiki<span class="o1024"> — a shortcut to document control</span>
+            </p>
+          </div>
+          <div class="abstract">
+            <p>
+              While working in the specialty gas industry, I had the opportunity to take part in the design and implementation of the documentation system for a lab that was becoming ISO 17025 certified.  The ISO standards have various requirements for controlling documentation<span class="o1024">, which include control who can revise documents, who approves revisions, and ensuring that only the most recent revision of a document is available for use</span>.
+            </p>
+            <p>
+              I realized that those requirements can be easily met through a wiki.<span class="o1024">  So I established an internal wiki using the MoinMoin wiki engine, with each wiki page being a document in the quality system documentation.  Not only did this make all of the documentation easily accessible to every employee, but it was therefore also easily searchable, so that people could find the document they needed.</span>  The wiki automatically kept track of all revisions to each document, and by default displayed the most recent revision.  User accounts requiring passwords controlled who had the authority to make changes to documents.
+            </p>
+          </div>
+          <div class="take-away">
+            <p>
+              Used internal wiki to meet ISO 17025 requirements for document control.
+            </p>
+          </div>
+        </section>
+        <section id="stands-regs">
+          <div class="topic">
+            <p>
+              Working with standards and regulations<span class="o1024"> – and helping to ensure compliance</span>
+            </p>
+          </div>
+          <div class="abstract">
+            <p>
+              While working with compressed and cryogenic gases for the industrial, welding, medical and specialty markets, I also gained experience working with voluntary standards such as ISO 9001, and government regulations such as those administered by FDA, EPA, OSHA and DOT.
+            </p>
+            <p>
+              While my experiences with FDA regulations were mostly of the “follow our directions exactly” sort—I would train employees in the company procedures and review daily production records, my experiences with other regulations were more “hands on”.  I've read the relevant parts of the CFR to understand DOT regulations about, for example, requirements for labels on specialty gas mixes.  I've also had to comb through the CFR to find what regulations apply to gas mixes breathed by professional divers.
+            </p>
+            <p>
+              But the standard with which I spent the most time was EPA 600/R-12, the <span id="too-long">“EPA Traceability protocol for assay and certification of gaseous calibration standards”</span>.  Where I was working at the time I had already set up a wiki for internal documentation, so in that I wrote some paragraph-by-paragraph summaries and/or interpretations of various sections of the EPA standard.  I also created an Excel spreadsheet that would do all of the required analytical calculations (and do them <em>as</em> required).  The spreadsheet could also be used to print out the records required specifically by the EPA standard.  (Unfortunately, I can't show a copy of any of that, since it's all owned by the company for which I was working.)
+            </p>
+          </div>
+          <div class="take-away">
+            <p>
+              Using webpages and desktop software, I have created solutions that help ensure compliance with government regulations.
+            </p>
+          </div>
+        </section>
+      </article>
     </main>
   </body>
 </html>
+
